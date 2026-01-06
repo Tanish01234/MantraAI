@@ -1,0 +1,189 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 🎨 MANTRA AI PREMIUM DESIGN SYSTEM */
+
+:root {
+  /* 🌌 FUTURISTIC DARK MODE - Deep Navy & Charcoal */
+  --bg-base: #0B0F19;
+  /* Deepest Navy */
+  --bg-surface: #111827;
+  /* Charcoal */
+  --bg-elevated: #1F2937;
+  /* Lighter Charcoal */
+
+  /* Mantra Gradients */
+  --accent-primary: #8B5CF6;
+  /* Violet */
+  --accent-secondary: #3B82F6;
+  /* Blue */
+  --accent-tertiary: #6366F1;
+  /* Indigo */
+
+  --text-primary: #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+
+  --border-subtle: rgba(139, 92, 246, 0.15);
+  --border-soft: rgba(139, 92, 246, 0.3);
+  --border-glow: rgba(255, 255, 255, 0.1);
+
+  --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --shadow-glow: 0 0 40px rgba(139, 92, 246, 0.15);
+}
+
+.dark {
+  /* Inherit root variables as we are dark-first now */
+}
+
+/* 🌌 GLOBAL RESET & TYPOGRAPHY */
+body {
+  @apply bg-[var(--bg-base)] text-[var(--text-primary)];
+  font-feature-settings: 'rlig' 1, 'calt' 1;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* 🎭 UTILITIES */
+@layer utilities {
+  .bg-noise {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  .glass-panel {
+    background: rgba(17, 24, 39, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-glow);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .glass-card {
+    background: rgba(17, 24, 39, 0.75);
+    /* 75% opacity */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-glow);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  .glass-dropdown {
+    background: rgba(17, 24, 39, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-glow);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .text-gradient-mantra {
+    background: linear-gradient(135deg, #A78BFA, #60A5FA);
+    /* Violet to Blue */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.3));
+  }
+
+  /* 🌌 AURORA BUTTON */
+  .btn-aurora {
+    position: relative;
+    background: transparent;
+    overflow: hidden;
+    border-radius: 9999px;
+    color: white;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.8), rgba(59, 130, 246, 0.8));
+    backdrop-filter: blur(10px);
+  }
+
+  .btn-aurora:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.4);
+    filter: brightness(1.2);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  /* 🌊 SCROLLBAR */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  /* 📝 INPUT FIELDS */
+  .genz-input {
+    @apply rounded-xl border border-[var(--border-subtle)] outline-none transition-all duration-300;
+    color: #ffffff;
+    background: rgba(17, 24, 39, 0.6);
+    backdrop-filter: blur(10px);
+  }
+
+  .genz-input:focus {
+    @apply border-[var(--accent-primary)];
+    box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.3), 0 0 20px rgba(139, 92, 246, 0.1);
+    background: rgba(17, 24, 39, 0.8);
+  }
+
+  .genz-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  /* 🧭 NAVIGATION */
+  .nav-pill-modern {
+    @apply px-4 py-2 rounded-full text-sm font-medium text-[var(--text-muted)] transition-all duration-300;
+    border: 1px solid transparent;
+  }
+
+  .nav-pill-modern:hover {
+    @apply text-[var(--text-primary)];
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .nav-pill-modern.active {
+    @apply bg-white/10 text-white shadow-lg font-bold backdrop-blur-md;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+  }
+
+  .genz-navbar {
+    @apply border-b border-[var(--border-subtle)] transition-all duration-300;
+    background: rgba(11, 15, 25, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  /* 💬 CHAT BUBBLES */
+  .chat-bubble-user {
+    @apply rounded-2xl rounded-tr-sm px-5 py-3 text-white shadow-lg transition-all duration-300;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.2);
+  }
+
+  .chat-bubble-ai {
+    @apply rounded-2xl rounded-tl-sm px-5 py-3 text-[var(--text-primary)] shadow-sm border border-[var(--border-subtle)] transition-all duration-300;
+    background: rgba(31, 41, 55, 0.6);
+    backdrop-filter: blur(12px);
+  }
+}
